@@ -1,68 +1,158 @@
+/* Define variáveis de cor para o tema escuro */
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --cor-fundo: #1a1a1a;
+  --cor-fundo-secundaria: #2a2a2a;
+  --cor-borda: #444;
+  --cor-texto: #f0f0f0;
+  --cor-texto-secundaria: #aaa;
+  --cor-primaria: #00aaff;
+  --cor-sucesso: #00cc88;
+  --cor-erro: #ff4444;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+/* Reset básico e fonte */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  line-height: 1.6;
+}
+
+/* Container principal do App */
+.app-container {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: var(--cor-fundo-secundaria);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  text-align: center;
+  color: var(--cor-primaria);
+  margin-bottom: 24px;
+  font-weight: 700;
 }
 
-button {
+/* --- TaskForm.jsx Estilos --- */
+.task-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.2);
   border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  border: 1px solid var(--cor-borda);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.form-input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid var(--cor-borda);
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.form-input::placeholder {
+  color: var(--cor-texto-secundaria);
+}
+
+.form-button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--cor-primaria);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.form-button:hover {
+  background-color: #0088cc;
+}
+
+/* --- TaskList.jsx Estilos --- */
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.task-list-empty {
+  text-align: center;
+  color: var(--cor-texto-secundaria);
+  padding: 20px;
+}
+
+/* --- TaskItem.jsx Estilos --- */
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.task-item.completed .task-info h3 {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.task-info h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.task-info .category {
+  font-size: 14px;
+  font-style: italic;
+  color: var(--cor-texto-secundaria);
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.task-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.action-button {
+  padding: 8px 12px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.action-button:hover {
+  opacity: 0.8;
+}
+
+.btn-toggle {
+  background-color: var(--cor-sucesso);
+  color: #111;
+}
+
+.btn-delete {
+  background-color: var(--cor-erro);
+  color: white;
 }
