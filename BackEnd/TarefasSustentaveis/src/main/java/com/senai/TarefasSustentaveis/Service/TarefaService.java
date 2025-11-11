@@ -24,9 +24,8 @@ public class TarefaService {
         return tarefaRep.findAll();
     }
 
-    public Tarefa excluirTarefa(Long id) {
+    public void excluirTarefa(Long id) {
         tarefaRep.deleteById(id);
-        return null;
     }
 
     public Tarefa atualizarTarefa(Long id, Tarefa tarefa) {

@@ -29,10 +29,11 @@ public class TarefaController {
         return ResponseEntity.ok(listaTarefa);
     }
 
+    // Em TarefaController.java
     @DeleteMapping("tarefa/delete")
-    public ResponseEntity<Tarefa> excluirTarefa(@RequestParam Long id) {
-        Tarefa tarefaDelete = tarefaServ.excluirTarefa(id);
-        return ResponseEntity.status(HttpStatus.CREATED).body(tarefaDelete);
+    public ResponseEntity<Void> excluirTarefa(@RequestParam Long id) { 
+        tarefaServ.excluirTarefa(id);
+        return ResponseEntity.noContent().build();
     }
 
     @PutMapping("tarefa/put")

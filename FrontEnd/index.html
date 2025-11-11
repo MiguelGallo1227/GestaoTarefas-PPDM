@@ -1,13 +1,36 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>gestaotarefas</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Tarefas Sustentáveis</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Minhas Tarefas Sustentáveis</h1>
+
+    <form id="form-tarefa">
+        <h3>Cadastrar / Atualizar</h3>
+        <input type="hidden" id="tarefa-id">
+        
+        <label for="titulo">Título:</label>
+        <input type="text" id="titulo" placeholder="Ex: Reciclar o lixo" required>
+        
+        <label for="categoria">Categoria:</label>
+        <input type="text" id="categoria" placeholder="Ex: Meio Ambiente" required>
+        
+        <label>
+            <input type="checkbox" id="status">
+            Concluída?
+        </label>
+        
+        <button type="submit">Salvar</button>
+    </form>
+
+    <h2>Tarefas Cadastradas</h2>
+    <ul id="lista-tarefas">
+        </ul>
+
+    <script src="script.js"></script>
+</body>
 </html>
